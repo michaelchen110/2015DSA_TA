@@ -1,0 +1,17 @@
+target = demo
+CPPFLAGS = -O2 -std=c++11 -Wall
+
+all: $(target)
+
+%:%.cpp
+	g++ $(CPPFLAGS) $< -o $@
+
+demo:demo.cpp bigdata.cpp bigdata.h bigdata_link.cpp bigdata_link.h
+	g++ $(CPPFLAGS) demo.cpp bigdata.cpp bigdata_link.cpp -o $@
+
+runt:
+	./demo tinytrack.txt
+
+runs:
+	./demo smalltrack.txt
+
